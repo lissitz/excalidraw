@@ -338,6 +338,7 @@ export class App extends React.Component<any, AppState> {
     window.addEventListener("blur", this.onUnload, false);
     window.addEventListener("dragover", e => e.preventDefault(), false);
     window.addEventListener("drop", e => e.preventDefault(), false);
+    (document as any).fonts.ready.then(() => this.setState({}));
 
     const searchParams = new URLSearchParams(window.location.search);
     const id = searchParams.get("id");
@@ -701,6 +702,7 @@ export class App extends React.Component<any, AppState> {
 
     return (
       <div className="container">
+        <span style={{ fontFamily: "Virgil" }} />
         <FixedSideContainer side="top">
           <div className="App-menu App-menu_top">
             <Stack.Col gap={4} align="end">
